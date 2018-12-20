@@ -29,6 +29,7 @@
  *   <http://www.minigui.com/en/about/licensing-policy/>.
  */
 
+#ifdef _MGNCSCTRL_PROPSHEET
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,7 +44,6 @@
 #include "mgncs.h"
 #include "fashion_common.h"
 
-#ifdef _MGNCSCTRL_PROPSHEET
 
 #ifdef _MGNCS_RDR_FASHION
 

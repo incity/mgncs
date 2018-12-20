@@ -29,6 +29,7 @@
  *   <http://www.minigui.com/en/about/licensing-policy/>.
  */
 
+#ifdef _MGNCS_RDR_FASHION
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,7 +45,6 @@
 #include "mgncs.h"
 #include "fashion_common.h"
 
-#ifdef _MGNCS_RDR_FASHION
 
 ///////////////////////////////////
 //common fucntion
