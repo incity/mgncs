@@ -23,6 +23,7 @@ COMMON_SRCS= mobject.c mcomponent.c mwidget.c mresmanager.c \
 			mledstatic.c \
 			mcolorbutton.c \
 			manimate.c manimateframes.c mgifanimateframes.c mbmparrayanimateframes.c \
+                      	mswiper.c mmarquee.c \
 			mseparator.c \
 			mdatabinding.c \
 			mdatasource.c \

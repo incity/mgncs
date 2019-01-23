@@ -34,6 +34,8 @@ COMMON_SRCS= mbuttonboxpiece.c \
 		mvboxlayoutpiece.c  \
 		marrowbuttonpiece.c	\
 		manimatepiece.c \
+		mswiperpiece.c \
+		mmarqueepiece.c \
 		mspinboxpiece.c \
 		mspinnerpiece.c \
 		mhspinboxpiece.c \

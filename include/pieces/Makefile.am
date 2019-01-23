@@ -29,6 +29,8 @@ HEAD_FILES= mbuttonboxpiece.h \
 			mhboxlayoutpiece.h \
 			mvboxlayoutpiece.h  \
 			manimatepiece.h \
+			mswiperpiece.h \
+			mmarqueepiece.h \
 			marrowbuttonpiece.h \
 			mspinboxpiece.h \
 			mspinnerpiece.h \

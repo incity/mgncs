@@ -109,6 +109,9 @@
 #include "pieces/mrectpiece.h"
 
 #include "pieces/manimatepiece.h"
+#include "pieces/mswiperpiece.h"
+#include "pieces/mmarqueepiece.h"
+
 
 #include "pieces/mprogresspiece.h"
 

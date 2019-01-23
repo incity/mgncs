@@ -24,6 +24,7 @@ libmgncsinclude_HEADERS=  mrdr.h \
 		   mledstatic.h \
 		   mcolorbutton.h \
 		   manimate.h manimateframes.h mmemanimateframes.h mgifanimateframes.h mbmparrayanimateframes.h \
+                   mswiper.h mmarquee.h \
 		   mseparator.h \
 		   mdatabinding.h \
 		   mdatasource.h \

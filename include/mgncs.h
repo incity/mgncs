@@ -185,6 +185,8 @@ extern "C" {
 
 #ifdef _MGNCSCTRL_ANIMATE
 #include "manimate.h"
+#include "mswiper.h"
+#include "mmarquee.h"
 #endif
 
 #include "mmledit.h"

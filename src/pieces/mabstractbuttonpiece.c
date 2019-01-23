@@ -216,7 +216,7 @@ static int mAbstractButtonPiece_processMessage(mAbstractButtonPiece* self, int m
 		case NCS_ABP_NORMAL:
 			if(message == MSG_MOUSEMOVEIN && wParam)
 			{
-				set_state(self, NCS_ABP_HILIGHT, 0, owner);
+                	//	set_state(self, NCS_ABP_HILIGHT, 0, owner);
 			}
 			else if (message == MSG_LBUTTONDOWN
 					|| (message == MSG_KEYDOWN &&( wParam == SCANCODE_SPACE || wParam == SCANCODE_ENTER)))
@@ -245,6 +245,10 @@ static int mAbstractButtonPiece_processMessage(mAbstractButtonPiece* self, int m
 			}
 			break;
 		case NCS_ABP_PUSHED:
+			if((message == MSG_MOUSEMOVEIN && wParam == 0)) //move out
+			{
+				set_state(self, NCS_ABP_NORMAL, 0, owner);
+			}
 			if(message == MSG_MOUSEMOVE)
 			{
 				int x = LOSWORD(lParam);
@@ -260,7 +264,8 @@ static int mAbstractButtonPiece_processMessage(mAbstractButtonPiece* self, int m
 				mWidget_releaseCapturedHotPiece();
 
 				set_check(self);
-				set_state(self, NCS_ABP_HILIGHT, NCSN_ABP_CLICKED, owner);
+				//set_state(self, NCS_ABP_HILIGHT, NCSN_ABP_CLICKED, owner);
+				set_state(self, NCS_ABP_NORMAL, NCSN_ABP_CLICKED, owner);
 			}
 			else if(message == MSG_KEYUP && 
                     (wParam == SCANCODE_SPACE || wParam == SCANCODE_ENTER))

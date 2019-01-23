@@ -295,6 +295,7 @@ mBmpArrayAnimateFrames* ncsCreateAnimateFramesFromDIR(const char* path)
 	struct dirent * ent;
 	char szPath[MAX_PATH];
 	int  len = 0;
+	int nr_frames = 0;
 
 	if(!path)
 		return NULL;
@@ -341,15 +342,18 @@ mBmpArrayAnimateFrames* ncsCreateAnimateFramesFromDIR(const char* path)
 		}
 
 		current = add_frame_from_file(szPath, current);
-		if(current && frames == NULL)
-			frames = current;
+		if(current) {
+			nr_frames++;
+			if(frames == NULL)
+				frames = current;
+		}
 	}
 
 	closedir(dir);
 
 	
 	baaf = NEWEX(mBmpArrayAnimateFrames, (DWORD)frames);
-
+	baaf->nr_frames = nr_frames;
 	baaf->flags |= NCSF_BAAF_AUTODELETE;
 	return baaf;
 }

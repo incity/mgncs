@@ -132,6 +132,8 @@ BOOL init_pieces_classes()
 
 #ifdef _MGNCSCTRL_ANIMATE
 	InitPieceClass(mAnimatePiece);
+	InitPieceClass(mSwiperPiece);
+	InitPieceClass(mMarqueePiece);
 #endif
 
 	InitPieceClass(mGridBoxPiece);
