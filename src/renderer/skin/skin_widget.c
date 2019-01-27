@@ -44,7 +44,7 @@
 
 static void skin_drawFocusFrame(mWidget *self, HDC hdc, const RECT* rc)
 {
-	ncsCommRDRDrawFocusFrame(self->hwnd, hdc, rc);
+	//ncsCommRDRDrawFocusFrame(self->hwnd, hdc, rc);
 }
 
 static BOOL skin_drawBkground(mWidget *self, HDC hdc, const RECT* inv_rc)

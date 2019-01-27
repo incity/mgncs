@@ -76,9 +76,9 @@ static void skin_buttonbox_paint(mButtonBoxPiece *self, HDC hdc, mWidget * owner
     di.style    = DI_FILL_TILE;
 
     if (state == NCS_ABP_DISABLED) {
-        di.idx_line = 3;
-    }else if (state == NCS_ABP_PUSHED){
         di.idx_line = 2;
+    }else if (state == NCS_ABP_PUSHED){
+        di.idx_line = 3;
     }else if (check_state == NCS_ABP_CHECKED){
             di.idx_line = 2;
 	}else if (check_state == NCS_ABP_HALFCHECKED){
