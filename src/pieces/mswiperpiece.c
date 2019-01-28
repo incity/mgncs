@@ -100,7 +100,7 @@ static void mSwiperPiece_paint(mSwiperPiece *self, HDC hdc, mWidget *owner, DWOR
       //                          MEMDC_FLAG_HWSURFACE | MEMDC_FLAG_SRCALPHA,
         //                        0x0000F000, 0x00000F00, 0x000000F0, 0x0000000F);
     HDC mem_dc = CreateCompatibleDCEx(hdc, RECTW(rcPagination), RECTH(rcPagination));
-    
+
     ncsCommRDRFillHalfRoundRect(mem_dc, &rcPagination,
                             self->pagination_bullet_width / 2, self->pagination_bullet_width / 2,
                             self->pagination_bgcolor, NCS_ROUND_CORNER_ALL | NCS_BORDER_ALL);
@@ -124,7 +124,7 @@ static void mSwiperPiece_paint(mSwiperPiece *self, HDC hdc, mWidget *owner, DWOR
         //FillCircle(mem_dc, x, y, r);
     }
 
-     SetBrushColor(mem_dc, ncsColor2Pixel(mem_dc, self->pagination_bullet_hilight_color));
+    SetBrushColor(mem_dc, ncsColor2Pixel(mem_dc, self->pagination_bullet_hilight_color));
 
     x = self->pagination * 2 * w + w;
     FillCircle(mem_dc, x, y, r);

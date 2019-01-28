@@ -1,4 +1,4 @@
-/* 
+/*
     This file is part of mGNCS, a component for MiniGUI.
 
     Copyright (C) 2008~2018, Beijing FMSoft Technologies Co., Ltd.

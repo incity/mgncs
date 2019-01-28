@@ -126,7 +126,7 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
         //self->mem_dc = CreateMemDC(self->mem_w, self->mem_h, 18, MEMDC_FLAG_HWSURFACE | MEMDC_FLAG_SRCALPHA, 0x0000F000, 0x00000F00, 0x000000F0, 0x0000000F);
         self->mem_dc = CreateCompatibleDCEx(hdc, self->mem_w, self->mem_h);
         FillBox(self->mem_dc, 0, 0, self->mem_w, self->mem_h);
-        
+
         SelectFont(self->mem_dc, GetWindowFont(owner->hwnd));
         SetTextColor(self->mem_dc, ncsColor2Pixel(self->mem_dc, fg_color));
         SetBkColor( self->mem_dc, COLOR_transparent );
@@ -134,8 +134,8 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
 
         SetRect(&rcText, 0, 0, self->mem_w, self->mem_h);
         DrawText (self->mem_dc, str, -1, &rcText, uFormat);
-		
-		printf("mem_dc w:%d h:%d rc: w:%d h%d\n", self->mem_w, self->mem_h, RECTW(rc), RECTH(rc));
+
+		//printf("mem_dc w:%d h:%d rc: w:%d h%d\n", self->mem_w, self->mem_h, RECTW(rc), RECTH(rc));
     }
 
     int minWidth, maxWidth;
@@ -161,19 +161,19 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
         maxHeight = RECTH(rc);
         y1 = 0;
     }
-    
+
     if(add_data && (mMarqueePiece_isPlay(self) || mMarqueePiece_isAutoplay(self))) {
         if(mMarqueePiece_isDirectionLeft(self))
             self->view_x += self->scrollamount;
         else if(mMarqueePiece_isDirectionRight(self))
             self->view_x -= self->scrollamount;
-        
+
         if(mMarqueePiece_isDirectionUp(self))
             self->view_y += self->scrollamount;
         else if(mMarqueePiece_isDirectionDown(self))
             self->view_y -= self->scrollamount;
     }
-    
+
     if(mMarqueePiece_isBehaviorAlternate(self)) {
         if(self->view_x + minWidth > maxWidth) {
             mMarqueePiece_setDirectionLeft(self, 0);
@@ -194,14 +194,14 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
             mMarqueePiece_setDirectionUp(self, 0);
             self->view_y = 0;
         }
-        
+
         w1 = minWidth;
         if(x1 == 0) {
             x2 = self->view_x;
         } else {
             x1 = self->view_x;
         }
-        
+
         h1 = minHeight;
         if(y1 == 0) {
             y2 = self->view_y;
@@ -246,10 +246,10 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
             y1 = self->view_y;
         }
     }
-    
+
     //printf("x1=%d y1=%d w1=%d h1=%d ", x1, y1, w1, h1);
     //printf("x2=%d y2=%d w2=%d h2=%d\n", x2, y2, w2, h2);
-    
+
     BitBlt(self->mem_dc, x1, y1, w1, h1, hdc, x2, y2, 0);
     if(w2 > 0)
         if(x2 == 0) BitBlt(self->mem_dc, 0, y1, w2, h1, hdc, w1, 0, 0);
@@ -257,7 +257,7 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
     if(h2 > 0)
         if(y2 == 0) BitBlt(self->mem_dc, x1, 0, w1, h2, hdc, 0, h1, 0);
         else BitBlt(self->mem_dc, x1, y1+h1, w1, h2, hdc, 0, 0, 0);
-        
+
 }
 
 static void mMarqueePiece_reset(mMarqueePiece *self)
