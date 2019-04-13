@@ -192,10 +192,53 @@ static BOOL mLabelPiece_autoSize(mLabelPiece* self, mWidget *owner, const SIZE *
 	HDC hdc;
 	if(!owner || !self->str)
 		return FALSE;
+    
+    DWORD uFormat = DT_WORDBREAK;
 
-	hdc = GetClientDC(owner->hwnd);
-	GetTextExtent(hdc, self->str, strlen(self->str),&size);
-	ReleaseDC(hdc);
+    SelectFont(hdc, GetWindowFont(owner->hwnd));
+    
+    if(self->align == NCS_ALIGN_CENTER)
+        uFormat |= DT_CENTER;
+    else if(self->align == NCS_ALIGN_RIGHT)
+        uFormat |= DT_RIGHT;
+    else
+        uFormat |= DT_LEFT;
+
+    if(self->valign == NCS_VALIGN_CENTER)
+        uFormat |= DT_VCENTER;
+    else if(self->valign == NCS_VALIGN_BOTTOM)
+        uFormat |= DT_BOTTOM;
+    else
+        uFormat |= DT_TOP;
+
+    if(!mLabelPiece_isAutoWrap(self))
+        uFormat |= DT_SINGLELINE;
+
+    if(!mLabelPiece_isPrefix(self))
+        uFormat |= DT_NOPREFIX;
+
+    /*
+     * for vertical text
+     */	
+	if (mLabelPiece_isWordBreak(self))
+		uFormat |= DT_WORDBREAK;
+
+    int max_width = INT_MAX;
+    int max_height = INT_MAX;
+    if(pszMax) {
+        max_width = pszMax->cx;
+        max_height = pszMax->cy;
+    }
+
+    RECT rcText = {0, 0, max_width, max_height};
+    DrawText (hdc, self->str, -1, &rcText, uFormat | DT_CALCRECT);
+
+    size.cx = RECTW(rcText);
+    size.cy = RECTH(rcText);
+    
+	//hdc = GetClientDC(owner->hwnd);
+	//GetTextExtent(hdc, self->str, strlen(self->str),&size);
+	//ReleaseDC(hdc);
 
 	if(pszMin)
 	{
@@ -205,13 +248,13 @@ static BOOL mLabelPiece_autoSize(mLabelPiece* self, mWidget *owner, const SIZE *
 			size.cy = pszMin->cy;
 	}
 
-	if(pszMax)
+	/*if(pszMax)
 	{
 		if(size.cx > pszMax->cx)
 			size.cx = pszMax->cx;
 		if(size.cy > pszMax->cy)
 			size.cy = pszMax->cy;
-	}
+	}*/
 	
 	self->right = self->left + size.cx;
 	self->bottom = self->top + size.cy;

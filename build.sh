@@ -30,7 +30,7 @@ PKG_CONFIG=/usr/bin/pkg-config \
 PKG_CONFIG_PATH=$OUTPUT/lib/pkgconfig \
 ./configure --host=arm-none-linux --target=arm-eabi \
 --enable-static --enable-shared \
---enable-fashionrdr=no --enable-flatrdr=no \
+--enable-flatrdr=no \
 --disable-ctrlcolorbutton \
 --prefix=$OUTPUT
 

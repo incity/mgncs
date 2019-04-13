@@ -11,7 +11,7 @@ COMMON_SRCS= mobject.c mcomponent.c mwidget.c mresmanager.c \
 			mitem.c mitem_manager.c mitemview.c mlistbox.c \
 			mcombobox.c mspinbox.c mspinner.c mslider.c \
 			mtrackbar.c mcontainer.c mpage.c mpropsheet.c \
-			mcommon.c mmainwnd.c mdialog.c minvisible-component.c \
+			mcommon.c mmainwnd.c mdialog.c mpopupdialog.c minvisible-component.c \
 			mem-slab.c mtimer.c medit.c msledit.c mscrollview.c \
 			miconview.c mlistcolumn.c mlistitem.c mlistview.c \
 			mmledit.c  mscrollbar.c  \

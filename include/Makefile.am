@@ -11,7 +11,7 @@ libmgncsinclude_HEADERS=  mrdr.h \
 		   mbutton.h mcheckbutton.h mradiobutton.h mimagebutton.h \
 		   mscroll_widget.h mpanel.h mprogressbar.h mcombobox.h \
 		   mspinbox.h mspinner.h mslider.h mtrackbar.h mcontainer.h \
-		   mcommon.h mpage.h mpropsheet.h mmainwnd.h mdialog.h \
+		   mcommon.h mpage.h mpropsheet.h mmainwnd.h mdialog.h mpopupdialog.h \
 		   mitem.h mitem_manager.h minvisible-component.h mtimer.h \
 		   medit.h msledit.h mitemview.h mlistbox.h mscrollview.h \
 		   miconview.h mlistcolumn.h mlistitem.h mlistview.h \

@@ -141,6 +141,7 @@ extern "C" {
 
 #ifdef _MGNCSCTRL_DIALOGBOX
 #include "mdialog.h"
+#include "mpopupdialog.h"
 #endif
 
 #include "mdblist.h"

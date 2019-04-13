@@ -169,9 +169,9 @@ static void mMarqueePiece_paint(mMarqueePiece *self, HDC hdc, mWidget *owner, DW
             self->view_x -= self->scrollamount;
 
         if(mMarqueePiece_isDirectionUp(self))
-            self->view_y += self->scrollamount;
-        else if(mMarqueePiece_isDirectionDown(self))
             self->view_y -= self->scrollamount;
+        else if(mMarqueePiece_isDirectionDown(self))
+            self->view_y += self->scrollamount;
     }
 
     if(mMarqueePiece_isBehaviorAlternate(self)) {

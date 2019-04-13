@@ -49,13 +49,20 @@ static LRESULT mDialogBox_wndProc(mDialogBox* self, UINT message, WPARAM wParam,
 	case MSG_COMMAND:
 		if(GetWindowStyle(self->hwnd) & NCSS_MNWND_MODE)
 		{
-			switch(LOWORD(wParam))
+			int id = LOWORD(wParam);
+			int code = HIWORD(wParam);
+
+			switch(id)
 			{
-			case IDCANCEL:
-				_c(self)->endDialog(self, 0);
-				return 0;
 			case IDOK:
-				_c(self)->endDialog(self, 1);
+	        case IDCANCEL:
+	        case IDABORT:
+	        case IDRETRY:
+	        case IDIGNORE:
+	        case IDYES:
+	        case IDNO:
+				if(code == NCSN_WIDGET_CLICKED)
+					_c(self)->endDialog(self, id);
 				return 0;
 			}
 		}
