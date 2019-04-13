@@ -1,12 +1,12 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ(2.60)
-AC_INIT(libmgncs, 1.2.0)
+AC_INIT(libmgncs, 1.2.4)
 AC_CONFIG_SRCDIR(src/mctrls.c)
 
 MGNCS_MAJOR_VERSION=1
 MGNCS_MINOR_VERSION=2
-MGNCS_MICRO_VERSION=0
+MGNCS_MICRO_VERSION=4
 MGNCS_INTERFACE_AGE=0
 MGNCS_BINARY_AGE=0
 MGNCS_VERSION=$MGNCS_MAJOR_VERSION.$MGNCS_MINOR_VERSION.$MGNCS_MICRO_VERSION
@@ -675,10 +675,10 @@ dnl ========================================================================
 dnl check for run-time mode of MiniGUI
 dnl ========================================================================
 
-PKG_CHECK_MODULES([MINIGUI], [minigui >= 3.2.0])
+PKG_CHECK_MODULES([MINIGUI], [minigui >= 4.0.0])
 
 if test "x$build_ctrl_colorbutton" = "xyes"; then
-    PKG_CHECK_MODULES([MGUTILS], [mgutils >= 1.2.0])
+    PKG_CHECK_MODULES([MGUTILS], [mgutils >= 1.2.2])
     DEP_LIBS="$DEP_LIBS $MGUTILS_LIBS"
 fi
 
