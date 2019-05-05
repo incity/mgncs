@@ -20,7 +20,7 @@ if [ ! -f "./configure" ];then
     
 fi
 
-OUTPUT=/home/suyc/V3S/minigui-git/output
+OUTPUT=/home/suyc/V3S/camdroid/device/softwinner/tiger-cdr/app/XiaoE/3rd-party
 
 CC=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc \
 AR=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar \
@@ -29,7 +29,7 @@ CFLAGS="-O3 -I$ANDROID_BUILD_TOP/hardware/libhardware_legacy/include -I$ANDROID_
 PKG_CONFIG=/usr/bin/pkg-config \
 PKG_CONFIG_PATH=$OUTPUT/lib/pkgconfig \
 ./configure --host=arm-none-linux --target=arm-eabi \
---enable-static --enable-shared \
+--enable-static --disable-shared \
 --enable-flatrdr=no \
 --disable-ctrlcolorbutton \
 --prefix=$OUTPUT
