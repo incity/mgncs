@@ -67,13 +67,17 @@ static void mSwiperPiece_destroy(mSwiperPiece *self)
 
 static void mSwiperPiece_paint(mSwiperPiece *self, HDC hdc, mWidget *owner, DWORD add_data)
 {
+    // add_data -> paint the next frame.
     _SUPER(mAnimatePiece, self, paint, hdc, owner, add_data);
 
-    if(self->frame && self->frame->nr_frames > 0 && add_data
-        && (mAnimatePiece_isPlay(self)|| mAnimatePiece_isAutoplay(self))) {
-        self->pagination++;
-        if(self->pagination > self->frame->nr_frames)
+    if(self->frame && self->frame->nr_frames > 0 ) {
+        if(add_data && (mAnimatePiece_isPlay(self)|| mAnimatePiece_isAutoplay(self))) {
+            self->pagination++;
+            if(self->pagination > self->frame->nr_frames)
+                self->pagination = 1;
+        } else if(self->pagination == 0) {
             self->pagination = 1;
+        }
     }
 
     if(self->pagination == 0)
@@ -110,7 +114,7 @@ static void mSwiperPiece_paint(mSwiperPiece *self, HDC hdc, mWidget *owner, DWOR
     int y = self->pagination_bullet_width / 2;
     int r = self->pagination_bullet_width / 2 - self->pagination_bullet_padding;
 
-    //ÏÈÌî³äµÚÒ»¸öÔ²£¬ºóÐøÆäËûÔ²ÓÃ¿½±´Ìá¸ßÐ§ÂÊ
+    //å…ˆå¡«å……ç¬¬ä¸€ä¸ªåœ†ï¼ŒåŽç»­å…¶ä»–åœ†ç”¨æ‹·è´æé«˜æ•ˆçŽ‡
     x += w * 2;
     FillCircle(mem_dc, x, y, r);
 

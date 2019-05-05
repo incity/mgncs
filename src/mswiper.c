@@ -42,9 +42,9 @@
 
 #ifdef _MGNCSCTRL_ANIMATE
 
+#ifdef _MGNCS_GUIBUILDER_SUPPORT
 #include "iconview_content_data.c"
 
-#ifdef _MGNCS_GUIBUILDER_SUPPORT
 static PBITMAP* get_default_bmparray(void) {
     static PBITMAP pbmps[2] = { NULL, NULL };
     if(pbmps[0] == NULL)
