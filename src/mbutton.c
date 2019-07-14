@@ -143,7 +143,7 @@ static LRESULT mButton_wndProc(mButton *self, UINT message, WPARAM wParam, LPARA
 static void mButton_onPaint(mButton *self, HDC hdc, const PCLIPRGN pinv_clip)
 {
     _SUPER(mWidget, self, onPaint, hdc, pinv_clip);
-
+#ifdef NCSCTRL_BUTTON_PAINT_FOCUS
 	//paint focus
 	if(GetFocus(GetParent(self->hwnd)) == self->hwnd)
 	{
@@ -169,6 +169,7 @@ static void mButton_onPaint(mButton *self, HDC hdc, const PCLIPRGN pinv_clip)
 		else
 			ncsCommRDRDrawFocusFrame(self->hwnd, hdc, &rc);
 	}
+#endif
 }
 
 

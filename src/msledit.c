@@ -1718,7 +1718,7 @@ static void mSlEdit_onChar (mSlEdit *self, WPARAM wParam, LPARAM lParam)
             return ;
     }
 
-    if (wParam == '\b') { //backspace
+    if (charBuffer[0] == '\b') { //backspace
         int del;
 
         if (self->editPos == 0 && self->selStart == self->selEnd)
@@ -1993,7 +1993,7 @@ static int mSlEdit_onKeyDown(mSlEdit* self, int scancode, DWORD key_flags)
 
             }
             break;
-
+#if 0
         case SCANCODE_BACKSPACE:
             {
                 int del;
@@ -2008,6 +2008,7 @@ static int mSlEdit_onKeyDown(mSlEdit* self, int scancode, DWORD key_flags)
                 sleInsertText (self, NULL, del);
             }
             break;
+#endif
 
         case SCANCODE_A:
             {
